@@ -37,12 +37,12 @@ services:
           "name": "Simulated Coffee"
           },
           {
-          "description": "An Americano is an espresso-based drink designed to resemble coffee brewed in a drip filter, considered popular in the United States of America. This drink consists of a single or double-shot of espresso combined with up to four or five ounces of hot water in a two-demitasse cup. It is important to note, that an Americano is created by adding the water to an already extracted espresso, not by extracting extra water through a single espresso puck. An Americano can be produced from lighter roasted coffees and roasts not generally associated with espresso, such as Ethiopian or Sumatran origins[1]. While some state that the Americano was created in Europe to deride the perceived American taste for weaker coffees, it is more likely that it was developed in the United States city of Seattle.A well - made Americano retains the subtle aroma of espresso with a lighter body and less bitterness.",
+          "description": "An Americano is an espresso-based drink.",
           "id": 2,
           "name": "Simulated Americano"
           },
           {
-          "description": "Bicerin is a traditional warm coffee concoction native to Turin, Italy, made of espresso, drinking chocolate and whole milk served layered in a small rounded glass. The word bicerin is Piedmontese for small glass. The beverage has been known since the 18th-century and was famously praised by Alexandre Dumas in 1852. It is believed to be based on the 17th-century drink Bavareisa: the key distinction being that in a bicerin the three components are carefully layered in the glass rather than being mixed together.The Caffè Al Bicerin has been serving the drink in Torino's Piazza della Consolata since the 18th century, and some authorities believe that it was invented there. Others believe that it originated around 1704 in the Caffè Fiorio which still stands on what is now Via Po. In 2001 bicerin was recognized as a traditional Piedmontese product in the official bulletin of the Piedmont region.",
+          "description": "Bicerin is a traditional warm coffee concoction native to Turin, Italy, made of espresso, drinking chocolate and whole milk served layered in a small rounded glass.",
           "id": 3,
           "name": "Simulated Bicerin"
           },
@@ -52,7 +52,7 @@ services:
           "name": "Simulated Breve"
           },
           {
-          "description": "Cafe Bombon was made popular in Valencia, Spain, and spread gradually to the rest of the country. It might have been re-created and modified to suit European tastebuds as in many parts of Asia such as Malaysia, Thailand and Singapore the same recipe for coffee which is called Kopi Susu Panas (Malaysia) or Kafe Ron (Thailand) has already been around for decades and is very popular in mamak stalls or kopitiams in Malaysia. A café bombón, however uses espresso served with sweetened condensed milk in a 1:1 ratio whereas the Asian version uses ground coffee and sweetened condensed milk at the same ratio. For café bombón, the condensed milk is added to the espresso. For visual effect, a glass is used, and the condensed milk is added slowly to sink underneath the coffee and create two separate bands of contrasting colour - though these layers are customarily stirred together before consumption. Some establishments merely serve an espresso with a sachet of condensed milk for patrons to make themselves.",
+          "description": "Cafe Bombon was made popular in Valencia, Spain, and spread gradually to the rest of the country..",
           "id": 5,
           "name": "Simulated Cafe Bombon"
           }
