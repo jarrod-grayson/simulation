@@ -5,7 +5,7 @@ connections:
   port: 17072
   capture: true
   forward:
-    mode: ForwardFirst
+    mode: SimulateFirst
     simulateOn:
       statusCodes: 400-500
     to: Real Coffee Shop
