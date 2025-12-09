@@ -1,21 +1,18 @@
 schema: SimV1
-
 name: coffeelistener
 connections:
 - name: Coffee Sim
   port: 17072
   capture: true
   forward:
-    mode: SimulateFirst
+    mode: ForwardFirst
     simulateOn:
       statusCodes: 400-500
     to: Real Coffee Shop
 - name: Real Coffee Shop
   endpoint: https://webservice.toscacloud.com/
   listen: false
-
 services:
-
 - name: /api/v1/Coffees - GET - ListCoffees
   steps:
   - direction: In
@@ -32,33 +29,32 @@ services:
       payload: |-
         [
           {
-          "description": "Served up Cold",
-          "id": 1,
-          "name": "Simulated Coffee"
+            "description": "Served up Cold",
+            "id": 1,
+            "name": "Simulated Coffee"
           },
           {
-          "description": "An Americano is an espresso-based drink.",
-          "id": 2,
-          "name": "Simulated Americano"
+            "description": "An Americano is an espresso-based drink.",
+            "id": 2,
+            "name": "Simulated Americano"
           },
           {
-          "description": "Bicerin is a traditional warm coffee concoction native to Turin, Italy, made of espresso, drinking chocolate and whole milk served layered in a small rounded glass.",
-          "id": 3,
-          "name": "Simulated Bicerin"
+            "description": "Bicerin is a traditional warm coffee concoction native to Turin, Italy, made of espresso, drinking chocolate and whole milk served layered in a small rounded glass.",
+            "id": 3,
+            "name": "Simulated Bicerin"
           },
           {
-          "description": "Caffe Breve is an American variation of a latte: a milk-based espresso drink using steamed half-and-half mixture of milk and cream instead of milk.",
-          "id": 4,
-          "name": "Simulated Breve"
+            "description": "Caffe Breve is an American variation of a latte: a milk-based espresso drink using steamed half-and-half mixture of milk and cream instead of milk.",
+            "id": 4,
+            "name": "Simulated Breve"
           },
           {
-          "description": "Cafe Bombon was made popular in Valencia, Spain, and spread gradually to the rest of the country..",
-          "id": 5,
-          "name": "Simulated Cafe Bombon"
+            "description": "Cafe Bombon was made popular in Valencia, Spain, and spread gradually to the rest of the country..",
+            "id": 5,
+            "name": "Simulated Cafe Bombon"
           }
         ]
       statusCode: 200
-
 - name: /api/v1/Employee - GET - Employees
   steps:
   - direction: In
@@ -75,41 +71,40 @@ services:
       payload: |-
         [
           {
-          "address": {
-            "city": "Vienna",
-            "country": "Austria",
-            "street": "Simulated street 1",
-            "zipCode": 6000
+            "address": {
+              "city": "Vienna",
+              "country": "Austria",
+              "street": "Simulated street 1",
+              "zipCode": 6000
           },
-          "firstName": "Peter",
-          "id": 1,
-          "lastName": "Simulation"
-          },
-          {
-          "address": {
-            "city": "Kalocsa",
-            "country": "Hungary",
-            "street": "Simulated street 600",
-            "zipCode": 8000
-          },
-          "firstName": "Fred",
-          "id": 2,
-          "lastName": "Simulation"
+            "firstName": "Peter",
+            "id": 1,
+            "lastName": "Simulation"
           },
           {
-          "address": {
-            "city": "Berlin",
-            "country": "Germany",
-            "street": "Simulated street 80",
-            "zipCode": 6000
+            "address": {
+              "city": "Kalocsa",
+              "country": "Hungary",
+              "street": "Simulated street 600",
+              "zipCode": 8000
           },
-          "firstName": "Edward",
-          "id": 3,
-          "lastName": "Simulation"
+            "firstName": "Fred",
+            "id": 2,
+            "lastName": "Simulation"
+          },
+          {
+            "address": {
+              "city": "Berlin",
+              "country": "Germany",
+              "street": "Simulated street 80",
+              "zipCode": 6000
+          },
+            "firstName": "Edward",
+            "id": 3,
+            "lastName": "Simulation"
           }
         ]
       statusCode: 200
-
 - name: /api/v1/Shops - GET - ListShops
   steps:
   - direction: In
@@ -126,22 +121,22 @@ services:
       payload: |-
         [
           {
-          "city": "Langley Falls",
-          "country": "USA",
-          "id": 1,
-          "name": "SIMULATION"
+            "city": "Langley Falls",
+            "country": "USA",
+            "id": 1,
+            "name": "SIMULATION"
           },
           {
-          "city": "Vienna",
-          "country": "Austria",
-          "id": 2,
-          "name": "SIMULATION"
+            "city": "Vienna",
+            "country": "Austria",
+            "id": 2,
+            "name": "SIMULATION"
           },
           {
-          "city": "New York",
-          "country": "USA",
-          "id": 3,
-          "name": "SIMULATION"
+            "city": "New York",
+            "country": "USA",
+            "id": 3,
+            "name": "SIMULATION"
           }
         ]
       statusCode: 200
