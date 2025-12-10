@@ -149,11 +149,7 @@ try {
             }
         }
 
-        $triggerBodyObj = [ordered]@{
-            playlistId         = $PlaylistId
-            private            = $false
-            parameterOverrides = @()
-        }
+        $triggerBodyObj = [ordered]@{ playlistId = $PlaylistId; private = $false; parameterOverrides = @() }
         $triggerBody = $triggerBodyObj | ConvertTo-Json -Depth 5
     }
 
@@ -168,25 +164,21 @@ try {
 
     if ($triggerResp.id) { 
         $runId = $triggerResp.id 
-    }
-    elseif ($triggerResp.executionId) { 
+    } elseif ($triggerResp.executionId) { 
         $runId = $triggerResp.executionId 
-    }
-    else { 
+    } else { 
         $runId = $null 
     }
 
-    if (-not $runId) {
-        throw "No run ID returned. Raw response: $($triggerResp | ConvertTo-Json -Depth 6)"
-    }
-
+    if (-not $runId) { throw "No run ID returned. Raw response: $($triggerResp | ConvertTo-Json -Depth 6)" }
     Write-Info "Playlist run started successfully. Run ID: $runId"
-
-    if ($enqueueOnly) {
+	
+	if ($enqueueOnly) {
         Write-Info "enqueueOnly switch provided — skipping monitoring and results retrieval."
+
         Write-Info "Playlist triggered successfully. Run ID: $runId"
         exit 0
-    }
+}
 }
 catch {
     Write-ErrorLine "Failed to trigger playlist: $($_.Exception.Message)"
