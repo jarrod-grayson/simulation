@@ -35,7 +35,39 @@ jobs:
         run: sleep 10
         shell: bash
 
-      - name: Execute Tosca Cloud Playlist and Upload Results
+      - name: Execute Tosca Cloud Playlist
+        shell: pwsh
+        env:
+          TOSCA_AUTH_URL: ${{ secrets.TOSCA_AUTH_URL }}
+          TOSCA_CLIENT_ID: ${{ secrets.TOSCA_CLIENT_ID }}
+          TOSCA_CLIENT_SECRET: ${{ secrets.TOSCA_CLIENT_SECRET }}
+          TOSCA_TENANT: ${{ secrets.TOSCA_TENANT }}
+          TOSCA_WORKSPACE_ID: ${{ secrets.TOSCA_WORKSPACE_ID }}
+        run: >
+          ./tosca_cloud_executionclient.ps1
+          -TokenUrl "$env:TOSCA_AUTH_URL"
+          -ClientId "$env:TOSCA_CLIENT_ID"
+          -ClientSecret "$env:TOSCA_CLIENT_SECRET"
+          -Scope "tta"
+          -TenantBaseUrl "https://$env:TOSCA_TENANT.my.tricentis.com"
+          -SpaceId "$env:TOSCA_WORKSPACE_ID"
+          -PlaylistName "Coffeeshop APIs"
+          -ResultsFileName "results.xml"
+          -ResultsFolderPath "C:\Tricentis\Tosca\Results"
+          -VerboseMode
+
+      - name: Wait 5 seconds
+        run: sleep 5
+        shell: bash
+
+      - name: Configure Coffee Sim connection (ForwardFirst + simulateOn)
+        run: ./update-coffee-sim.ps1
+
+      - name: Wait 10 seconds
+        run: sleep 10
+        shell: bash
+
+      - name: Execute Tosca Cloud Playlist
         shell: pwsh
         env:
           TOSCA_AUTH_URL: ${{ secrets.TOSCA_AUTH_URL }}
@@ -59,14 +91,6 @@ jobs:
       - name: Wait 10 seconds
         run: sleep 10
         shell: bash
-
-      - name: Configure Coffee Sim connection (ForwardFirst + simulateOn)
-        run: ./update-coffee-sim.ps1
-
-      # Optional: run your HTTP validation test(s)
-      # - name: Validate Coffee API
-      #   shell: pwsh
-      #   run: ./tests/test-coffees.ps1 -BaseUrl "http://localhost:17072"
 
       - name: Stop Simulator Agent
         if: always()
