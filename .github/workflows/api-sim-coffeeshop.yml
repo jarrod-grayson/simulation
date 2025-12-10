@@ -1,0 +1,49 @@
+name: API Simulation - CoffeeShop Demo
+
+on:
+  workflow_dispatch:          # manual run from GitHub UI
+  push:
+    paths:
+      - "start-simulator.ps1"
+      - "clone-and-load-simulation.ps1"
+      - "update-coffee-sim.ps1"
+      - "stop-simulator.ps1"
+      - ".github/workflows/api-sim-coffeeshop.yml"
+
+jobs:
+  coffee-sim-demo:
+    runs-on: [self-hosted, windows]   # will run on your local Windows runner
+
+    env:
+      SIM_AGENT_URL: http://localhost:17070
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start Simulator Agent
+        shell: pwsh
+        run: ./start-simulator.ps1
+
+      - name: Load CoffeeShop simulation into workspace
+        shell: pwsh
+        run: ./clone-and-load-simulation.ps1
+
+      # Optional: run your HTTP validation test(s)
+      # - name: Validate Coffee API
+      #   shell: pwsh
+      #   run: ./tests/test-coffees.ps1 -BaseUrl "http://localhost:17072"
+
+      - name: Configure Coffee Sim connection (ForwardFirst + simulateOn)
+        shell: pwsh
+        run: ./update-coffee-sim.ps1
+
+      # Optional: run your HTTP validation test(s)
+      # - name: Validate Coffee API
+      #   shell: pwsh
+      #   run: ./tests/test-coffees.ps1 -BaseUrl "http://localhost:17072"
+
+      - name: Stop Simulator Agent
+        if: always()
+        shell: pwsh
+        run: ./stop-simulator.ps1
