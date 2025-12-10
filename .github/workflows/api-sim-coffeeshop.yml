@@ -22,11 +22,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start Simulator Agent
-        shell: pwsh
         run: ./start-simulator.ps1
 
       - name: Load CoffeeShop simulation into workspace
-        shell: pwsh
         run: ./clone-and-load-simulation.ps1
 
       # Optional: run your HTTP validation test(s)
@@ -35,7 +33,6 @@ jobs:
       #   run: ./tests/test-coffees.ps1 -BaseUrl "http://localhost:17072"
 
       - name: Configure Coffee Sim connection (ForwardFirst + simulateOn)
-        shell: pwsh
         run: ./update-coffee-sim.ps1
 
       # Optional: run your HTTP validation test(s)
@@ -45,5 +42,4 @@ jobs:
 
       - name: Stop Simulator Agent
         if: always()
-        shell: pwsh
         run: ./stop-simulator.ps1
