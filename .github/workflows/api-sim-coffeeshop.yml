@@ -28,7 +28,6 @@ jobs:
         run: ./clone-and-load-simulation.ps1
 
       - name: Execute Tosca Cloud Playlist and Upload Results
-        shell: powershell
         env:
           TOSCA_AUTH_URL: ${{ secrets.TOSCA_AUTH_URL }}
           TOSCA_CLIENT_ID: ${{ secrets.TOSCA_CLIENT_ID }}
